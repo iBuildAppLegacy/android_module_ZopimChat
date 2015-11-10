@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zopim_chat_plugin_chat">Chat</string>
+    <string name="zopim_chat_plugin_back">Back</string>
+    <string name="zopim_chat_plugin_exit">Exit</string>
+    <string name="zopim_chat_plugin_send">Send</string>
+    <string name="zopim_chat_plugin_lets_start">Let\'s Start!</string>
+    <string name="zopim_chat_plugin_enter_your_name_title">Please, enter Your Name</string>
+    <string name="zopim_chat_plugin_enter_your_name_hint">Enter Name</string>
+    <string name="zopim_chat_plugin_start_chat">Start Chat</string>
+    <string name="zopim_chat_plugin_error_init">Can\'t initialize plugin</string>
+</resources>

@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="typing_indicator_diameter">0dp</dimen>
+    <dimen name="typing_indicator_spacing">0dp</dimen>
+
+    <color name="typing_indicator_secondary">@android:color/transparent</color>
+
+    <style name="ProgressBar.White" parent="@android:style/Widget.ProgressBar.Small">
+        <item name="android:indeterminateDrawable">@drawable/zopim_chat_plugin_progress_black</item>
+    </style>
+
+    <style name="ProgressBar.Black" parent="@android:style/Widget.ProgressBar.Small">
+        <item name="android:indeterminateDrawable">@drawable/zopim_chat_plugin_progress_white</item>
+    </style>
+
+    <style name="ZopimChatThemeLight" parent="ZopimChatTheme.Light">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="colorAccent">@android:color/black</item>
+        <item name="colorPrimary">@android:color/black</item>
+        <item name="colorPrimaryDark">@android:color/black</item>
+        <item name="colorControlNormal">@android:color/black</item>
+        <item name="colorControlActivated">@android:color/black</item>
+        <item name="android:textColorPrimary">@android:color/black</item>
+        <item name="android:textColorSecondary">@android:color/black</item>
+        <item name="android:progressBarStyleSmall">@style/ProgressBar.White</item>
+    </style>
+
+    <style name="ZopimChatThemeDark" parent="ZopimChatTheme.Dark">
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="colorAccent">@android:color/white</item>
+        <item name="colorPrimary">@android:color/white</item>
+        <item name="colorPrimaryDark">@android:color/white</item>
+        <item name="colorControlNormal">@android:color/white</item>
+        <item name="colorControlActivated">@android:color/white</item>
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="android:textColorSecondary">@android:color/white</item>
+        <item name="android:progressBarStyleSmall">@style/ProgressBar.Black</item>
+    </style>
+
+    <style name="attachment_source_dialog">
+        <item name="android:orientation">horizontal</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">@android:color/white</item>
+        <item name="android:padding">8dp</item>
+    </style>
+
+    <style name="attachment_source_dialog_listview">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:background">#1a000000</item>
+    </style>
+
+    <style name="attachment_source_dialog_row_text">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginLeft">8dp</item>
+        <item name="android:textSize">20sp</item>
+        <item name="android:textColor">@android:color/black</item>
+    </style>
+
+    <style name="chat_bubble_visitor">
+        <item name="android:textColor">@android:color/white</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:background">@drawable/zopim_chat_plugin_chat_visitor_background</item>
+        <item name="android:minHeight">@dimen/chat_bubble_min_height</item>
+        <item name="android:minWidth">@dimen/chat_bubble_min_width</item>
+        <item name="android:gravity">start|center_vertical</item>
+        <item name="android:padding">@dimen/chat_bubble_padding</item>
+    </style>
+
+    <style name="chat_bubble_agent">
+        <item name="android:textColor">#cc000000</item>
+        <item name="android:textSize">15sp</item>
+        <item name="android:background">@drawable/zopim_chat_plugin_chat_agent_background</item>
+        <item name="android:minHeight">@dimen/chat_bubble_min_height</item>
+        <item name="android:minWidth">@dimen/chat_bubble_min_width</item>
+        <item name="android:gravity">start|center_vertical</item>
+        <item name="android:padding">@dimen/chat_bubble_padding</item>
+    </style>
+
+    <style name="chat_input_field">
+        <item name="android:textColor">#cc000000</item>
+        <item name="android:textColorHint">#66000000</item>
+        <item name="android:maxLines">3</item>
+        <item name="android:inputType">textMultiLine</item>
+        <item name="android:background">@null</item>
+        <item name="android:height">57dp</item>
+    </style>
+
+    <style name="chat_send_button">
+        <item name="android:background">@drawable/zopim_chat_plugin_btn_chat_send</item>
+        <item name="android:adjustViewBounds">true</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_gravity">center</item>
+        <item name="android:scaleType">fitCenter</item>
+    </style>
+
+    <style name="chat_widget">
+        <item name="anchor">@null</item>
+        <item name="android:visibility">gone</item>
+        <item name="android:clickable">false</item>
+        <item name="android:focusable">false</item>
+        <item name="android:focusableInTouchMode">false</item>
+        <item name="android:enabled">false</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:minWidth">0dp</item>
+    </style>
+
+    <style name="chat_widget_background">
+        <item name="android:background">@android:color/transparent</item>
+        <item name="android:clickable">false</item>
+        <item name="android:focusable">false</item>
+        <item name="android:focusableInTouchMode">false</item>
+        <item name="android:enabled">false</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+    <style name="chat_widget_unread_notification">
+        <item name="android:textSize">0sp</item>
+        <item name="android:textColor">@android:color/transparent</item>
+        <item name="android:clickable">false</item>
+        <item name="android:focusable">false</item>
+        <item name="android:focusableInTouchMode">false</item>
+        <item name="android:enabled">false</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">0dp</item>
+        <item name="android:minHeight">0dp</item>
+        <item name="android:minWidth">0dp</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+</resources>

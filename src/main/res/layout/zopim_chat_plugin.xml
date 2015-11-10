@@ -1,0 +1,86 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/content_view"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
+    <RelativeLayout
+        android:id="@+id/navbar"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <LinearLayout
+            android:id="@+id/back_btn"
+            android:orientation="horizontal"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:layout_alignParentLeft="true">
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="match_parent"
+                android:src="@drawable/zopim_chat_plugin_back_arrow"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/zopim_chat_plugin_back"
+                android:textColor="#e6000000"
+                android:textSize="16sp"
+                android:layout_marginLeft="5dp"/>
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textSize="16sp"
+            android:textColor="#e6000000" />
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/lets_start"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="25sp"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="50dp"
+        android:text="@string/zopim_chat_plugin_lets_start" />
+
+    <TextView
+        android:id="@+id/enter_your_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="13sp"
+        android:layout_marginBottom="12dp"
+        android:text="@string/zopim_chat_plugin_enter_your_name_title" />
+
+    <EditText
+        style="@style/chat_input_field"
+        android:id="@+id/enter_your_name_field"
+        android:layout_width="270dp"
+        android:layout_height="40dp"
+        android:textSize="18sp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:layout_marginBottom="20dp"
+        android:maxLines="1"
+        android:inputType="textPersonName"
+        android:hint="@string/zopim_chat_plugin_enter_your_name_hint"
+        android:background="@drawable/zopim_chat_plugin_enter_your_name_field_background" />
+
+    <TextView
+        android:id="@+id/start_chat"
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:background="@drawable/zopim_chat_plugin_start_chat_background"
+        android:textSize="17sp"
+        android:text="@string/zopim_chat_plugin_start_chat"
+        android:gravity="center"/>
+
+</LinearLayout>

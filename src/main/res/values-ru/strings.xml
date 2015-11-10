@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="zopim_chat_plugin_chat">Чат</string>
+    <string name="zopim_chat_plugin_back">Назад</string>
+    <string name="zopim_chat_plugin_exit">Выйти</string>
+    <string name="zopim_chat_plugin_send">Отправить</string>
+    <string name="zopim_chat_plugin_lets_start">Приступим!</string>
+    <string name="zopim_chat_plugin_enter_your_name_title">Пожалуйста, введите своё имя</string>
+    <string name="zopim_chat_plugin_enter_your_name_hint">Введите имя</string>
+    <string name="zopim_chat_plugin_start_chat">Открыть чат</string>
+    <string name="zopim_chat_plugin_error_init">Ошибка инициализации модуля</string>
+</resources>

@@ -1,0 +1,25 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.ibuildapp.ZopimChatPlugin">
+
+    <application>
+        <activity
+            android:name=".ZopimChatPlugin"
+            android:windowSoftInputMode="stateUnspecified|adjustResize"
+            android:screenOrientation="portrait"
+            android:theme="@style/ZopimChatThemeLight"/>
+        <activity
+            android:name=".ZopimChat"
+            android:configChanges="orientation|screenSize"
+            android:windowSoftInputMode="stateUnspecified|adjustResize"
+            android:theme="@style/ZopimChatThemeLight">
+
+            <intent-filter>
+                <action android:name="zopim.action.RESUME_CHAT"/>
+                <action android:name="chat.action.INITIALIZATION_TIMEOUT"/>
+                <action android:name="chat.action.TIMEOUT"/>
+            </intent-filter>
+
+        </activity>
+    </application>
+
+</manifest>
