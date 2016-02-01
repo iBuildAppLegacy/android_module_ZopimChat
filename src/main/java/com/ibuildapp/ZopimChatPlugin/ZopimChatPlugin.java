@@ -1,26 +1,19 @@
 /****************************************************************************
-*                                                                           *
-*  Copyright (C) 2014-2015 iBuildApp, Inc. ( http://ibuildapp.com )         *
-*                                                                           *
-*  This file is part of iBuildApp.                                          *
-*                                                                           *
-*  This Source Code Form is subject to the terms of the iBuildApp License.  *
-*  You can obtain one at http://ibuildapp.com/license/                      *
-*                                                                           *
-****************************************************************************/
+ *                                                                           *
+ *  Copyright (C) 2014-2015 iBuildApp, Inc. ( http://ibuildapp.com )         *
+ *                                                                           *
+ *  This file is part of iBuildApp.                                          *
+ *                                                                           *
+ *  This Source Code Form is subject to the terms of the iBuildApp License.  *
+ *  You can obtain one at http://ibuildapp.com/license/                      *
+ *                                                                           *
+ ****************************************************************************/
 package com.ibuildapp.ZopimChatPlugin;
 
-import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
-import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.LayerDrawable;
-import android.os.Build;
-import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextUtils;
 import android.text.TextWatcher;
@@ -30,12 +23,14 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.appbuilder.sdk.android.AppBuilderModuleMain;
 import com.appbuilder.sdk.android.Widget;
 import com.ibuildapp.ZopimChatPlugin.core.Core;
 import com.ibuildapp.ZopimChatPlugin.core.ParserXml;
 import com.ibuildapp.ZopimChatPlugin.core.StaticData;
 
-public class ZopimChatPlugin extends Activity {
+
+public class ZopimChatPlugin extends AppBuilderModuleMain {
 
     public static final int REQUEST_CHAT = 102310;
 
@@ -47,9 +42,15 @@ public class ZopimChatPlugin extends Activity {
     private static final int COLOR_RED_40 = Color.parseColor("#66ff0000");
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public void create() {
         setContentView(R.layout.zopim_chat_plugin);
+        setTopBarLeftButtonTextAndColor(getResources().getString(R.string.zopim_chat_plugin_back), getResources().getColor(android.R.color.black), true, new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                finish();
+            }
+        });
+        setTopBarTitleColor(getResources().getColor(android.R.color.black));
 
         final Widget widget = (Widget)getIntent().getSerializableExtra(EXTRA_WIDGET);
 
@@ -80,13 +81,7 @@ public class ZopimChatPlugin extends Activity {
                     public void run() {
                         try {
                             findViewById(R.id.content_view).setBackgroundColor(StaticData.getColorSkin().getColor1());
-                            setNavbarBackgroundColor(StaticData.getColorSkin().getColor1(), findViewById(R.id.navbar));
-                            findViewById(R.id.back_btn).setOnClickListener(new View.OnClickListener() {
-                                @Override
-                                public void onClick(View v) {
-                                    finish();
-                                }
-                            });
+                            setTopBarBackgroundColor(StaticData.getColorSkin().getColor1());
 
                             String name = getName();
                             final String title = TextUtils.isEmpty(widget.getTitle()) ? getString(R.string.zopim_chat_plugin_chat) : widget.getTitle();
@@ -111,7 +106,7 @@ public class ZopimChatPlugin extends Activity {
                                 }
                             });
 
-                            ((TextView) findViewById(R.id.title)).setText(title);
+                            setTopBarTitle(TextUtils.isEmpty(title) ? getString(R.string.zopim_chat_plugin_chat) : title);
                             ((TextView) findViewById(R.id.lets_start)).setTextColor(StaticData.getColorSkin().getColor3());
                             ((TextView) findViewById(R.id.enter_your_name)).setTextColor(StaticData.getColorSkin().getColor3());
 
@@ -158,22 +153,6 @@ public class ZopimChatPlugin extends Activity {
                 });
             }
         });
-    }
-
-    public void setNavbarBackgroundColor(final int color, View view) {
-        float density = getResources().getDisplayMetrics().density;
-
-        Drawable background = new LayerDrawable(new Drawable[] {
-                new ColorDrawable(color),
-                new ColorDrawable(color == Color.WHITE ? Color.parseColor("#33000000") : Color.parseColor("#66FFFFFF"))
-        });
-
-        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN)
-            view.setBackground(background);
-        else
-            view.setBackgroundDrawable(background);
-
-        view.setPadding((int) (density * 10), (int) (density * 10), (int) (density * 10), (int) (density * 10));
     }
 
     private void hideKeyboard(View view) {

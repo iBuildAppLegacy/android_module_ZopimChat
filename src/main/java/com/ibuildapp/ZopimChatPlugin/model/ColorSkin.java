@@ -12,6 +12,9 @@ package com.ibuildapp.ZopimChatPlugin.model;
 
 import android.graphics.Color;
 
+/**
+ * Created by doubledeath on 24.07.2015.
+ */
 public class ColorSkin {
 
     private static final String IS_LIGHT_VALUE_LIGHT = "1";

@@ -12,6 +12,9 @@ package com.ibuildapp.ZopimChatPlugin.core;
 
 import com.ibuildapp.ZopimChatPlugin.model.ColorSkin;
 
+/**
+ * Created by doubledeath on 24.07.2015.
+ */
 public class StaticData {
 
     private static ColorSkin colorSkin;

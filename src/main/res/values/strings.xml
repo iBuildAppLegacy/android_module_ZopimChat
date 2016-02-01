@@ -9,4 +9,5 @@
     <string name="zopim_chat_plugin_enter_your_name_hint">Enter Name</string>
     <string name="zopim_chat_plugin_start_chat">Start Chat</string>
     <string name="zopim_chat_plugin_error_init">Can\'t initialize plugin</string>
+    <string name="file_provider_authority">_PACKAGE_NAME_</string>
 </resources>

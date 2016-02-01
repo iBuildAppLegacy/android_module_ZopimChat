@@ -19,6 +19,9 @@ import android.util.Xml;
 
 import com.ibuildapp.ZopimChatPlugin.model.ColorSkin;
 
+/**
+ * Created by doubledeath on 24.07.2015.
+ */
 public class ParserXml {
 
     public static class Result {

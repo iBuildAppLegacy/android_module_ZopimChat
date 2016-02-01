@@ -10,6 +10,9 @@
 ****************************************************************************/
 package com.ibuildapp.ZopimChatPlugin.core;
 
+/**
+ * Created by doubledeath on 24.07.2015.
+ */
 
 import android.graphics.Bitmap;
 import android.support.v4.util.LruCache;

@@ -41,6 +41,7 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
+
 public class ZopimChat extends AppCompatActivity implements ChatListener {
 
     private static String ACTION_TIMEOUT = "chat.action.TIMEOUT";
