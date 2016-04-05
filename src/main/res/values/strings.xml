@@ -2,6 +2,7 @@
 <resources>
     <string name="zopim_chat_plugin_chat">Chat</string>
     <string name="zopim_chat_plugin_back">Back</string>
+    <string name="zopim_chat_plugin_home">Home</string>
     <string name="zopim_chat_plugin_exit">Exit</string>
     <string name="zopim_chat_plugin_send">Send</string>
     <string name="zopim_chat_plugin_lets_start">Let\'s Start!</string>
