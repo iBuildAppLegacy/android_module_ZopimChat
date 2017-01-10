@@ -21,5 +21,8 @@ android {
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
     compile "com.ibuildapp:sdk:$iBuildAppSdkVersion"
-    compile "com.zopim.android:sdk:$ZopimVersion"
+//    compile project (':api')
+    compile ("com.zopim.android:sdk:$ZopimVersion"){
+        exclude module: 'recyclerview-v7'
+    }
 }

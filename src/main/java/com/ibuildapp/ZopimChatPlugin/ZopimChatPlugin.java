@@ -25,6 +25,7 @@ import android.widget.Toast;
 
 import com.appbuilder.sdk.android.AppBuilderModuleMain;
 import com.appbuilder.sdk.android.StartUpActivity;
+import com.appbuilder.sdk.android.Utils;
 import com.appbuilder.sdk.android.Widget;
 import com.ibuildapp.ZopimChatPlugin.core.Core;
 import com.ibuildapp.ZopimChatPlugin.core.ParserXml;
@@ -61,7 +62,9 @@ public class ZopimChatPlugin extends AppBuilderModuleMain {
             return;
         }
 
-        final String xml = widget.getPluginXmlData();
+        final String xml = widget.getPluginXmlData().length() == 0
+                ? Utils.readXmlFromFile(widget.getPathToXmlFile())
+                : widget.getPluginXmlData();
 
         if(TextUtils.isEmpty(xml)) {
             handleErrorInit();
