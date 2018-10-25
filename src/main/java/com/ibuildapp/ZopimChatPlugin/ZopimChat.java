@@ -37,9 +37,16 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.ActionMenuView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.concurrent.TimeUnit;
+
+import rx.Subscription;
+import rx.android.schedulers.AndroidSchedulers;
+import rx.functions.Action0;
 
 
 public class ZopimChat extends AppCompatActivity implements ChatListener {
@@ -60,6 +67,7 @@ public class ZopimChat extends AppCompatActivity implements ChatListener {
 
     private Toolbar toolbar;
     private TextView right_btn;
+    private View attachButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -108,14 +116,18 @@ public class ZopimChat extends AppCompatActivity implements ChatListener {
     }
 
     private void resumeChat() {
-        FragmentManager manager = getSupportFragmentManager();
-
+       /* FragmentManager manager = getSupportFragmentManager();
+        Log.e("ZOPIM", "RESUME CHAT");
         if (manager.findFragmentByTag(ZopimChatLogFragment.class.getName()) == null) {
             FragmentTransaction transaction = manager.beginTransaction();
-            transaction.add(R.id.chat_fragment_container, new ZopimChatLogFragment(), ZopimChatLogFragment.class.getName());
+            ZopimChatLogFragment fragment = new ZopimChatLogFragment();
+            transaction.add(R.id.chat_fragment_container, fragment, ZopimChatLogFragment.class.getName());
             transaction.commit();
+            View view = fragment.getView().findViewById(R.id.attach_button);
+            Log.e("ZOPIM", view.toString());
+            view.setVisibility(View.GONE);
         }
-
+*/
         overDrawRightButton();
     }
 
@@ -144,14 +156,41 @@ public class ZopimChat extends AppCompatActivity implements ChatListener {
     }
 
     private void newChat(String name) throws Throwable {
+        Log.e("ZOPIM", "NEW CHAT");
         FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
-        transaction.replace(R.id.chat_fragment_container, fragmentZopimChatInit(name), ZopimChatFragment.class.getName());
+        Fragment fragment = fragmentZopimChatInit(name);
+        transaction.replace(R.id.chat_fragment_container, fragment, ZopimChatFragment.class.getName());
         transaction.commit();
+    }
+
+    @Override
+    public void onAttachFragment(final Fragment fragment) {
+        super.onAttachFragment(fragment);
+
+        if (fragment instanceof ZopimChatLogFragment){
+            AndroidSchedulers.mainThread().createWorker().schedulePeriodically(new Action0() {
+                @Override
+                public void call() {
+                    if (fragment.getView() == null)
+                        return;
+
+                    if (attachButton == null)
+                        attachButton = fragment.getView().findViewById(R.id.attach_button);
+
+                    /*if (attachButton == null) {
+                        Log.e("ATTACH BUTTON NULL", fragment.getClass().getSimpleName());
+                        return;
+                    }*/
+
+                    attachButton.setVisibility(View.GONE);
+                }
+            }, 10, 10, TimeUnit.MILLISECONDS);
+        }
+        Log.e("ON FRAGMENT ATTACHED", fragment.getClass().getSimpleName());
     }
 
     private void overDrawRightButton() {
         Account account = com.zopim.android.sdk.api.ZopimChat.getDataSource().getAccount();
-
         if(account != null) {
             if(Account.Status.UNKNOWN == account.getStatus()) {
                 right_btn.setVisibility(View.GONE);

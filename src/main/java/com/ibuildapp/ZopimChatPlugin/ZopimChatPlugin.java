@@ -24,14 +24,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.appbuilder.sdk.android.AppBuilderModuleMain;
-import com.appbuilder.sdk.android.StartUpActivity;
 import com.appbuilder.sdk.android.Utils;
 import com.appbuilder.sdk.android.Widget;
 import com.ibuildapp.ZopimChatPlugin.core.Core;
 import com.ibuildapp.ZopimChatPlugin.core.ParserXml;
 import com.ibuildapp.ZopimChatPlugin.core.StaticData;
 
-@StartUpActivity(moduleName = "ZopimChat")
 public class ZopimChatPlugin extends AppBuilderModuleMain {
 
     public static final int REQUEST_CHAT = 102310;
